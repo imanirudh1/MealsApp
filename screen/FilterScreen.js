@@ -66,12 +66,27 @@ FilterScreen.navigationOptions=navdata => {
       <HeaderButtons HeaderButtonComponent={HeaderButton} >
           <Item iconName='ios-save'
           title='save'
+          color='white'
           onPress={
             navdata.navigation.getParam('save')
           } />
       </HeaderButtons>
     )
-  }
+  },
+  headerLeft:() => {
+    return(<HeaderButtons HeaderButtonComponent={HeaderButton} >
+      <Item
+        title='Fav Button'
+        iconName='ios-menu'
+        color='white'
+        onPress={() => {navdata.navigation.toggleDrawer()}}
+      />
+    </HeaderButtons>)
+  },
+  headerStyle:{
+    backgroundColor: Platform.OS ==='android' ? 'black' : 'pink' ,
+  },
+  headerTintColor: Platform.OS ==='android' ? 'white' : 'red'
 }};
 
 const styles = StyleSheet.create({

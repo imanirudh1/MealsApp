@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View ,StatusBar} from 'react-native';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo'
 import MealsNavigation from './navigation/MealsNavigation'
@@ -22,17 +22,14 @@ export default function App() {
     )
  }
   return (
-   
-    
-    <MealsNavigation />
+   <View style={styles.container}>
+    <StatusBar barStyle='light-content' translucent backgroundColor="rgba(0,0,0,0.0)" />
+    <MealsNavigation /></View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

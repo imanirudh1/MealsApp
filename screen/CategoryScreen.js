@@ -5,7 +5,7 @@ import GridItem from '../components/GridItem.js';
 import {HeaderButtons,Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 const CategoryScreen=props => {
-    return (
+    return (<View style={styles.container}>
         <FlatList 
         numColumns={2}
         data={CATEGORIES}
@@ -22,7 +22,7 @@ const CategoryScreen=props => {
             />
           )
         }}
-        />
+        /></View>
     );
 };
 
@@ -30,7 +30,7 @@ CategoryScreen.navigationOptions=(navData) => {
   return {
 headerTitle:'Meal Category',
   headerStyle:{
-  backgroundColor: Platform.OS ==='android' ? 'purple' : 'pink' ,
+  backgroundColor: Platform.OS ==='android' ? 'black' : 'pink' ,
 },
 headerTintColor: Platform.OS ==='android' ? 'white' : 'red',
 headerLeft:() => {
@@ -48,10 +48,9 @@ headerLeft:() => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      margin:10,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      
+      backgroundColor: '#212121',
+     
     },
     
   });

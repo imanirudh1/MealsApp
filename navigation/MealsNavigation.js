@@ -52,7 +52,7 @@ const tabconfig={
                 <Ionicons name='ios-restaurant' size={25} color={tabinfo.tintColor} />
             )
         },
-        tabBarColor:'purple'
+        tabBarColor:'black'
     }},
     Favorite:{screen:FavNavigation,navigationOptions:{
         tabBarLabel:'Favorites',
@@ -85,9 +85,10 @@ const FilterNav=createStackNavigator(
 );
 const CustomNav=props => {
     return(
-        <View><View style={styles.profile}>
-            <Image source={require('../assets/ab.jpg')} style={styles.image} />
-            <Text>Anirudh</Text>
+        <View style={styles.screen} >
+            <View style={styles.profile}>
+            <View style={styles.imgb}><Image resizeMode='center' source={require('../assets/ab.jpg')} style={styles.image} /></View>
+            <Text style={{fontFamily:'open-sans-bold',marginTop:10,paddingLeft:50,color:'white'}} >Anirudh</Text>
 
             </View>
             <DrawerNavigatorItems {...props} /> 
@@ -97,25 +98,40 @@ const CustomNav=props => {
 const styles=StyleSheet.create({
     profile:{
         flexDirection:'row',
-
+        marginTop:30,
+       //justifyContent:'space-around'
+       // overflow:'hidden'
     },
     image:{
-        height:50,
+        height:100,
         width:100,
-        marginTop:10
+        borderRadius:30
+    },
+    imgb:{
+        borderRadius:50,
+        overflow:'hidden',
+        borderColor:'orange',
+        borderWidth:2
+    },
+    screen:{
+        //margin:10,
+        flex:1,
+        backgroundColor:'black'
     }
 })
 
 const MainNav=createDrawerNavigator(
     {
         Home:{screen:MealsFavTab,navigationOptions:{
-            drawerLabel:'Meals'
+            drawerLabel:'Meals',
+            color:'white'
         }},
         Filter:FilterNav,
     },
     {   contentComponent:CustomNav,
         contentOptions:{
-            activeTintColor:'orange'
+            activeTintColor:'orange',
+            inactiveTintColor:'white'
         }
     }
 )
